@@ -2,8 +2,11 @@ package com.example.anujsaini.listdemo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -16,7 +19,7 @@ public class ActivityMain extends AppCompatActivity {
 
         ListView myList = (ListView) findViewById(R.id.demo_list);
 
-        ArrayList<String> stringArrayList = new ArrayList<>();
+        final ArrayList<String> stringArrayList = new ArrayList<>();
         stringArrayList.add("Hi");
         stringArrayList.add("Welcome");
         stringArrayList.add("To");
@@ -27,5 +30,16 @@ public class ActivityMain extends AppCompatActivity {
 
         ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, stringArrayList);
         myList.setAdapter(stringArrayAdapter);
+
+        // below code is to make a toast on list item click
+        myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Toast.makeText(ActivityMain.this, stringArrayList.get(i), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
     }
 }
