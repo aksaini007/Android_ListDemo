@@ -1,4 +1,4 @@
-# list-demo
+# Android List Demo
 This is the simple list demo. Using this project you can create a list in your android application.
 * This project is developed using Android Studio.
 * targetSdkVersion is 27.
